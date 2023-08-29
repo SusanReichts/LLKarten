@@ -15,3 +15,10 @@ tidyverse, sf, ggmap, osmdata, plotly
 ---
 
 <img width="684" alt="Screenshot 2023-08-29 at 21 24 02" src="https://github.com/SusanReichts/LLKarten/assets/93623936/3345dc6b-15a8-4e25-beb9-9f9431884b2b">
+
+---
+
+Datensatz ist in den Projektordner geladen, alternativ direkt über github zu laden
+
+lingland <- read_csv("lingland.csv") oder:
+lingland <- read.csv("")
