@@ -20,5 +20,4 @@ tidyverse, sf, ggmap, osmdata, plotly
 
 Datensatz ist in den Projektordner geladen, alternativ direkt über github zu laden
 
-lingland <- read_csv("lingland.csv") oder:
-lingland <- read.csv("")
+lingland <- read_csv("lingland.csv") 
