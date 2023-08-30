@@ -1,4 +1,11 @@
 ## LLKarten
+
+relevante Referenzen: 
+- https://wiki.openstreetmap.org/wiki/Map_features
+- https://joshuamccrain.com/tutorials/maps/streets_tutorial.html 
+
+
+
 # Straßenkarten zur Visualisierung Linguistic Landscapes (mit OSM)
 
 entstanden aus dem Linguistikseminar zu Linguistic Landscapes in Konstanz, Sommersemester 2023, bei dem 3 Sitzungen in die Arbeit mit R eingeführt haben. Dieser Teil bezieht sich hierbei auf die Erstellung von Straßenkarten mit OSM und dem Einbinden eigener Beobachtungen. 
