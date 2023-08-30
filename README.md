@@ -46,7 +46,7 @@ Der Datensatz enthält neben den Annotationen auch Koordinaten, welche ein einfa
           aes(x = long, 
               y = lat))
           
-![image](https://github.com/SusanReichts/LLKarten/assets/93623936/f93927fb-6dfd-4bce-98f8-2c879a624e83)
+![image](https://github.com/SusanReichts/LLKarten/assets/93623936/f93927fb-6dfd-4bce-98f8-2c879a624e83.png)
 
 
 Theoretisch lassen sich auch hier bereits einige Eindrücke zu den Daten gewinnen, beispielsweise über das Adaptieren der aes Bezüge: 
@@ -59,7 +59,7 @@ Theoretisch lassen sich auch hier bereits einige Eindrücke zu den Daten gewinne
           shape = 21,
           alpha = .4)
 
-![image](https://github.com/SusanReichts/LLKarten/assets/93623936/72eecfb0-03bc-4b0d-8289-ecc6ff085a0a)
+![image](https://github.com/SusanReichts/LLKarten/assets/93623936/72eecfb0-03bc-4b0d-8289-ecc6ff085a0a.png)
 
 
 Mit ein wenig mehr Input, kann man so relativ schnell eine komplexe Visualisierung erstellen. 
@@ -83,18 +83,18 @@ Mit ein wenig mehr Input, kann man so relativ schnell eine komplexe Visualisieru
            y = "Breitengrad",
            caption = "Daten aus dem Seminar")
 
-![Screenshot 2023-08-30 at 10 40 39](https://github.com/SusanReichts/LLKarten/assets/93623936/a8326d4e-8952-4b17-bd80-5e9e52ad2cda)
+![Screenshot 2023-08-30 at 10 40 39](https://github.com/SusanReichts/LLKarten/assets/93623936/a8326d4e-8952-4b17-bd80-5e9e52ad2cda.png)
 
 
 Was hier fehlt ist natürlich der Bezug zum Raum um eventuelle Gruppierungen/Cluster in Fragestellungen zu place/space einzuordnen. Hierzu haben wir uns im Kurs für das Nutzen von OSM entschieden, da sich hier die gewonnenen Kenntnisse zu ggplot anwenden lassen und die Studierenden relativ schnell eigene visuelle Ideen umsetzen können. OSM, Open Street Maps, ist eine crowdsourcing Initiative, bei der diverse Geodaten gebündelt und bereitgestellt werden - hier haben Studierende also zusätzlich noch einen Einblick gewinnen können, wie sie selbst beim Bereitstellen und Updaten offener Daten mitmachen können. 
 
-![image](https://github.com/SusanReichts/LLKarten/assets/93623936/0c29f7ea-13c6-4173-a517-ad2555a7f375)
+![image](https://github.com/SusanReichts/LLKarten/assets/93623936/0c29f7ea-13c6-4173-a517-ad2555a7f375.png)
 
 
 
 Über die Objektabfrage (Cursor mit Fragezeichen) lassen sich Karteninhalte überprüfen - beispielsweise alle hinterlegten Informationen zur Alten Rheinbrücke. Sämtliche Karteninhalte, von Parks bis hin zu einzelnen Papierkörben, sind als Objekte hinterlegt. Die Herausforderung besteht also im ersten Schritt aus dem Zusammensammeln relevanter Raumdaten. Das haben wir für die Studierenden im Vorfeld übernommen und ist mit dem untenstehenden Code replizierbar. 
 
-![image](https://github.com/SusanReichts/LLKarten/assets/93623936/2b43ffa7-dd7b-4b76-af6f-13506d640ef0)
+![image](https://github.com/SusanReichts/LLKarten/assets/93623936/2b43ffa7-dd7b-4b76-af6f-13506d640ef0.png)
 
 
 Karteninhalte lassen sich als Einzelobjekte aus OSM extrahieren und dann variabel zusammensetzen. Hierzu ist es wichtig die jeweiligen Referenzen zu kennen:
@@ -105,7 +105,7 @@ Karteninhalte lassen sich als Einzelobjekte aus OSM extrahieren und dann variabe
 
 Um die Karte zu erstellen, werden sf Objekte, die aus bestimmten values innerhalb der gewählten keys bestehen, übereinander geschichtet (nach dem ggplot System, was "unten" liegt wird überdeckt). Für unsere Karte haben wir uns auf 5 Objektarten fokussiert: Wasser, Grünflächen, Gebäude, Straßen, und die Grenze. Ein 6. Objekt stellen dann die gesammelten Daten dar. 
 
-![GIF](https://github.com/SusanReichts/LLKarten/assets/93623936/f10afe28-5afb-41aa-9e11-fed0300a0ac4)
+![GIF](https://github.com/SusanReichts/LLKarten/assets/93623936/f10afe28-5afb-41aa-9e11-fed0300a0ac4.png)
 
 
 
@@ -138,7 +138,7 @@ Das kann man dann schon visualisieren! Hierbei nutzt man geom_sf() und einer Spe
       coord_sf(xlim = c(9.15, 9.221), 
                ylim = c(47.655, 47.694))
 
-![image](https://github.com/SusanReichts/LLKarten/assets/93623936/95d454d9-219a-4e69-8056-5c2e96226865)
+![image](https://github.com/SusanReichts/LLKarten/assets/93623936/95d454d9-219a-4e69-8056-5c2e96226865.png)
 
 
 Die weiteren Straßenlevel lassen sich wie folgt erstellen: 
@@ -336,7 +336,7 @@ Beim Zusammensetzen der Karte kommt es nun noch auf die Reihenfolge der Objekte 
 
     Karte #ausführen
 
-![image](https://github.com/SusanReichts/LLKarten/assets/93623936/7c237b6e-aa99-4e15-9af2-5ca4e9d39b93)
+![image](https://github.com/SusanReichts/LLKarten/assets/93623936/7c237b6e-aa99-4e15-9af2-5ca4e9d39b93.png)
 
 
 Zuletzt kann man dann die eigenen Datenpunkte hinzufügen. Das kann man natürlich auch mit anderen Koordinaten machen, bspw. als Geschenk um bestimmte Plätze hervorzuheben. 
@@ -352,7 +352,7 @@ Zuletzt kann man dann die eigenen Datenpunkte hinzufügen. Das kann man natürli
            y = "") +
       theme_bw()
 
-![image](https://github.com/SusanReichts/LLKarten/assets/93623936/6d987372-50b3-4043-82a3-71ed959179a2)
+![image](https://github.com/SusanReichts/LLKarten/assets/93623936/6d987372-50b3-4043-82a3-71ed959179a2.png)
 
 
 
@@ -375,12 +375,7 @@ Zuletzt kann man dann die eigenen Datenpunkte hinzufügen. Das kann man natürli
     tt_BB <- ggplotly(tt_Karte)
     tt_BB
 
-![image](https://github.com/SusanReichts/LLKarten/assets/93623936/ce327748-4ec4-4eb5-98ee-e742609217b9)
-
-
-
----
-
+![image](https://github.com/SusanReichts/LLKarten/assets/93623936/ce327748-4ec4-4eb5-98ee-e742609217b9.png)
 
 
     
