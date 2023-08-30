@@ -21,6 +21,7 @@ tidyverse, sf, ggmap, osmdata, (plotly)
 Datensatz ist in den Projektordner geladen, alternativ direkt über github zu laden
 
 lingland <- read_csv("lingland.csv") oder:
+
 lingland <- read.csv("https://raw.githubusercontent.com/SusanReichts/LLKarten/main/lingland.csv?token=GHSAT0AAAAAACG52U6XUR3USZPTHX6GK6FAZHO7UIQ")
 
 ## Datensatz Linguistic Landscapes
@@ -91,7 +92,8 @@ Karteninhalte lassen sich als Einzelobjekte aus OSM extrahieren und dann variabe
 
 Um die Karte zu erstellen, werden sf Objekte, die aus bestimmten values innerhalb der gewählten keys bestehen, übereinander geschichtet (nach dem ggplot System, was "unten" liegt wird überdeckt). Für unsere Karte haben wir uns auf 5 Objektarten fokussiert: Wasser, Grünflächen, Gebäude, Straßen, und die Grenze. Ein 6. Objekt stellen dann die gesammelten Daten dar. 
 
-![GIF](https://github.com/SusanReichts/LLKarten/assets/93623936/f90594cf-1e01-420f-a348-09bddc5c76b2)
+![GIF](https://github.com/SusanReichts/LLKarten/assets/93623936/f10afe28-5afb-41aa-9e11-fed0300a0ac4)
+
 
 
 ## Kartenobjekte erstellen
