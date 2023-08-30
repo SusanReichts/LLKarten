@@ -339,7 +339,7 @@ Beim Zusammensetzen der Karte kommt es nun noch auf die Reihenfolge der Objekte 
 ![image](https://github.com/SusanReichts/LLKarten/assets/93623936/7c237b6e-aa99-4e15-9af2-5ca4e9d39b93)
 
 
-### Zuletzt kann man dann die eigenen Datenpunkte hinzufügen. Das kann man natürlich auch mit anderen Koordinaten machen, bspw. als Geschenk um bestimmte Plätze hervorzuheben. 
+Zuletzt kann man dann die eigenen Datenpunkte hinzufügen. Das kann man natürlich auch mit anderen Koordinaten machen, bspw. als Geschenk um bestimmte Plätze hervorzuheben. 
 
     Karte + geom_point(data = lingland,
                    aes(x = long,
