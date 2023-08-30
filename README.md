@@ -74,7 +74,8 @@ Mit ein wenig mehr Input, kann man so relativ schnell eine komplexe Visualisieru
            y = "Breitengrad",
            caption = "Daten aus dem Seminar")
 
-![image](https://github.com/SusanReichts/LLKarten/assets/93623936/427629a5-5f02-4a3b-9ffc-7f23c07b74be)
+![Screenshot 2023-08-30 at 10 40 39](https://github.com/SusanReichts/LLKarten/assets/93623936/a8326d4e-8952-4b17-bd80-5e9e52ad2cda)
+
 
 Was hier fehlt ist natürlich der Bezug zum Raum um eventuelle Gruppierungen/Cluster in Fragestellungen zu place/space einzuordnen. Hierzu haben wir uns im Kurs für das Nutzen von OSM entschieden, da sich hier die gewonnenen Kenntnisse zu ggplot anwenden lassen und die Studierenden relativ schnell eigene visuelle Ideen umsetzen können. OSM, Open Street Maps, ist eine crowdsourcing Initiative, bei der diverse Geodaten gebündelt und bereitgestellt werden - hier haben Studierende also zusätzlich noch einen Einblick gewinnen können, wie sie selbst beim Bereitstellen und Updaten offener Daten mitmachen können. 
 
