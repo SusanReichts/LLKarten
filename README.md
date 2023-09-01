@@ -198,7 +198,7 @@ und alle weiteren Objekte ...
                   value= c("river", "stream")) %>% 
       osmdata_sf()
 
-### Insel Steigenberger
+### Dominikanerinsel (mit dem Steigenberger-Hotel)
 
     KN_Insel <- getbb("Konstanz")%>%
       opq() %>% 
