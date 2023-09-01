@@ -118,7 +118,7 @@ KN_Wasserweg <- getbb("Konstanz")%>%
                   value= c("river", "stream")) %>% 
   osmdata_sf()
 
-#Insel Steigenberger
+#Dominikanerinsel (mit dem Steigenberger-Hotel)
 
 KN_Insel <- getbb("Konstanz")%>%
   opq() %>% 
