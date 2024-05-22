@@ -1,0 +1,439 @@
+---
+title: "Sitzungsskript"
+subtitle: "Linguistic Landscapes, Seminar Sommer 2023"
+author: Sarah Warchhold & Susan Reichelt
+format: html
+editor: visual  
+execute: 
+  echo: true
+  warning: false
+---
+
+![](Folienbild.png)
+
+# Rückblick
+
+## R
+
+\
+[R]{.seeblau}: Programmiersprache und -umgebung
+
+[R Studio/ Posit]{.seeblau}: IDE (integrated development environment)
+
+[Pakete]{.seeblau} sind meist auf CRAN (**C**omprehensive **R** **A**rchive and **N**etwork) bereitgestellt oder können über development tools (bspw. über Github) geladen werden. Pakete ermöglichen spezielle Funktionen und müssen einmal installiert werden.
+
+## Die R Studio Oberfläche
+
+im Skripteditor schreibt man ein ausführbares Skript. Hier bekommt man außerdem Einblicke zu den Objekten die in der Workspace geladen sind.
+
+![](Layout%20RStudio.png){fig-align="left"}
+
+## Die R Studio Oberfläche
+
+über das Project-Menü in der rechten oben Ecke können wir ein Projekt erstellen. Hierbei können dann leicht alle Objekte, Skripte & Outputs in einem Ordner gemanagt werden.
+
+![](Layout%20RStudio%202.png){fig-align="left"}
+
+## Die R Studio Oberfläche
+
+in der Console werden Befehle ausgeführt, in den Tabs der rechten Fenster kann man geladene Objekte, Dateien & Pakete einsehen, sowie Plotvorschau und Hilfe aufrufen.
+
+![](Layout%20RStudio.png){fig-align="left"}
+
+## 
+
+R hat eine relativ steile Lernkurve, ist aber auch unglaublich flexibel und vielschichtig einsetzbar. Beim Arbeiten mit R geht es also auch sehr ums [**Erwartungsmanagement**]{.yellow}**.**
+
+. . .
+
+\
+Es gibt viele mögliche Skripte die zum Ziel führen, vieles hat mit persönlichen Arbeitsweisen zu tun.
+
+. . .
+
+\
+Kommentare retten Zeit und Nerven. Gleiches gilt für proof-reading, denn R versagt bei jeder fehlenden Klammer.
+
+# Erste (und zweite) Schritte in R
+
+## Allgemeines zum Verfassen von Code
+
+### Operatoren
+
+|                  |                                                                                                                                         |
+|------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| [\#]{.seeblau}   | für Kommentare vor, nach und zwischen Code Chunks                                                                                       |
+| [\<-]{.seeblau}  | für Objektzuweisungen ("besteht aus")                                                                                                   |
+| [%\>%]{.seeblau} | für Funktionsfolgen ("nimm und dann"), kommt aus dem [magrittr]{.seeblau} Paket und ist Teil vom tidyverse (selbiges muss geladen sein) |
+
+## Code schreiben
+
+\
+Den Code kann man direkt in der Console oder im Skript (oder: Markdown) schreiben. Im Skript ist das Ganze kommentierbar und reproduzierbar, daher empfehlen wir, dass Sie im Skript schreiben.
+
+Den ganzen Code ausführen kann man mit dem Run-Button oberhalb des Skripts, einzelne (markierte) Zeilen mit einem Shortcut: [command (bzw. Strg) + Enter]{.seeblau}
+
+## 
+
+Für einfache Berechnungen können bekannte Operatoren genutzt werden (+, -, \*, /, ...), für komplexere Berechnungen lassen sich Funktionen zusammenstellen.
+
+```{r}
+#| code-fold: false
+#| output-location: fragment
+1+1 #berechnet 1+1
+```
+
+\
+
+. . .
+
+Wenn man mit bestimmten Werten weiterarbeiten möchte, dann lohnt es sich Objekte zu erstellen.
+
+```{r}
+#| code-fold: false
+#| code-line-numbers: "1,2|4,5"
+#| output-location: fragment
+
+#berechnet 1+1 und weist der Berechnung den Objektnamen 'a' zu
+a <- 1+1 
+
+#ruft das Objekt auf, Lösung wird als Output angezeigt
+a 
+```
+
+## 
+
+So lässt sich mit verschiedenen Objekten interagieren.
+
+```{r}
+#| code-fold: false
+#| code-line-numbers: "1,2,3|5,6,7"
+#| output-location: fragment
+
+#Objekte weiter bearbeiten
+a <- a + 3
+b <- a + 5
+
+#Objekte in Beziehung stellen
+c <- a + b
+c
+
+```
+
+\
+Die Objekte, die man erstellt, tauchen rechts in der Environment auf. Einzelberechnungen wie hier sind [Values]{.seeblau} (Werte). Aber man hat ja meist mehr als einen Datenpunkt. Hier setzen sich [Vektoren]{.seeblau} (Spalten) aus [Beobachtungen]{.seeblau} (Zeilen) zusammen. Mehrere Vektoren bilden einen [Dataframe]{.seeblau} (Tabelle).
+
+## 
+
+```{r}
+#| code-fold: false
+#| code-line-numbers: "1,2,3|5,6,7"
+#| output-location: fragment
+
+#bei kategorischen Werten die Anführungszeichen beachten!
+item <- c("haus", "katze","seminar")
+count <- c(4, 5, 7)
+
+# kombinieren von 2 Vektoren zu einem dataframe
+set <- data.frame(item, count) 
+set
+```
+
+\
+
+So lassen sich manuell Dataframes (Tabellen) erstellen - aber wesentlich schneller gehts natürlich beim Importieren vorhandener Daten.
+
+## Pakete laden
+
+Neben den eigenen Daten, sind auch Funktions- und Datenpakete (sog. packages) unglaublich hilfreich. Für unsere Zwecke genügt heute das [Tidyverse]{.seeblau} Paket, welches aus mehreren kleineren Paketen besteht.
+
+\
+Pakete müssen einmal installiert werden (bzw. auch nach Updates von R). Bei jeder Sitzung müssen die Pakete dann, je nach Bedarf, aus der library geladen werden.
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+options(repos = list(CRAN="http://cran.rstudio.com/"))
+```
+
+```{r}
+#| output: false
+#| code-fold: false
+
+install.packages("tidyverse")
+library(tidyverse)
+
+```
+
+## Daten importieren
+
+Dateien können entweder über das Environment Panel (Import Dataset) oder über das Skript in R importiert werden. Hierfür nutzen wir das [readr]{.seeblau} Paket. Wenn man die Datei im Projektordner liegen hat, lassen sich die Daten auch mit Klick in im Tab Files laden.
+
+\
+
+```{r}
+#| code-fold: false
+#| code-line-numbers: "1,2|4,5"
+
+#Importieren über read_csv (readr Paket)
+lingland <- read_csv("https://raw.githubusercontent.com/SusanReichts/LLKarten/main/lingland.csv")
+
+#View-Befehl zum Ansehen der Datei
+View(lingland) 
+```
+
+## Objekte betrachten
+
+\
+Objekte betrachten [\~ die eigenen Daten kennenlernen \~]{.seeblau} ist ein wichtiger Teil der Datenaufbereitung und bietet Entscheidungsgrundlagen für das weitere Vorgehen in der Analyse.
+
+\
+Im Environment Panel kann man eine kurze Zusammenfassung zu jedem geladenen und erstellten Objekt einsehen. Per Klick auf den Objektnamen öffnet sich die Datei als Tab neben dem Skript. Außerdem lässt sich jeder Objektname als Funktion ausführen.
+
+------------------------------------------------------------------------
+
+Man kann auch Objektstrukturen und -teilbereiche in verschiedenen Detailstufen einsehen.
+
+\
+
+```{r}
+#| code-fold: false
+#| output-location: fragment
+
+#Einblick in die Dimensionen
+dim(lingland) 
+
+```
+
+------------------------------------------------------------------------
+
+```{r}
+#| code-fold: false
+#| output-location: fragment
+
+#Einblick in die ersten 6 Beobachtungen
+head(lingland)  
+
+```
+
+------------------------------------------------------------------------
+
+```{r}
+#| code-fold: false
+#| output-location: fragment
+
+#Einblick in die Variablen/Vektoren
+summary(lingland) 
+
+```
+
+------------------------------------------------------------------------
+
+```{r}
+#| code-fold: false
+#| output-location: fragment
+
+#Einblick in die Variablen/Vektoren Namen
+names(lingland) 
+
+```
+
+------------------------------------------------------------------------
+
+```{r}
+#| code-fold: false
+#| output-location: fragment
+
+#Einblick in die Werte einer Variablen
+lingland$Forschungsfokus 
+```
+
+## Objekte beschreiben
+
+Unseren Dataframe können wir auch zusammenfassen oder in kleinere Objekte aufteilen - bspw. wenn Sie sich auf eine bestimmte Kategorie fokussieren wollen.
+
+Da wir uns hier hauptsächlich mit der Visualisierung der Daten als kurzen Exkurs befassen, sind die folgenden Funktionen nur ein winzig kleiner Einblick!
+
+Das hier relevante Paket kommt aus dem [dplyr]{.seeblau} Paket.
+
+## Daten filtern
+
+\
+
+```{r}
+#| code-fold: false
+#| output-location: fragment
+#| code-line-numbers: "1|2|3"
+
+sample_Dialekt <- lingland %>% 
+  filter(Zustand == "Geist")
+
+sample_Dialekt
+```
+
+## Daten zusammenfassen
+
+\
+
+Mit summarise() lassen sich quantitative Übersichten erstellen, aber auch Objekteigenschaften zusammenfassen.\
+
+Funktionen: n(), n_distinct(), mean(), median(), sum(), ...
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| code-fold: false
+#| output-location: fragment
+
+lingland %>% 
+  summarise("Themen" = n_distinct(Forschungsfokus))
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| code-fold: false
+#| output-location: fragment
+lingland %>% 
+  summarise("Themen" = unique(Forschungsfokus))
+```
+:::
+:::
+
+## Daten grupppieren
+
+\
+Wenn Sie in Ihren Vektoren/Variablen mit Kategorien arbeitet, dann können Sie die [group_by()]{.seeblau} Funktion nutzen, um die Datenverteilung entlang der Kategorien zu ergründen.
+
+\
+
+```{r}
+#| code-fold: false
+#| output-location: fragment
+#| code-line-numbers: "1,2,3|4,5|6,7|8"
+
+lingland %>%  
+  group_by(Forschungsfokus, 
+           Format) %>% 
+  summarise("Format" = unique(Format),
+            n = n()) %>% 
+  pivot_wider(names_from = Forschungsfokus,
+              values_from = n) %>% 
+  ungroup()
+```
+
+# Datenvisualisierung
+
+## Die Logik von ggplot2
+
+Für eine schnelle und vielseitige visuelle Datenauswertung eignet sich [ggplot2]{.seeblau} besonders gut.
+
+\
+Das Paket funktioniert nach Schichtprinzip. Hierbei werden die Grundbausteine (unterste Schicht: data & aesthetics) zu Beginn festgelegt: [ggplot()]{.seeblau}. Eine zweite Schicht verweist auf die Art der Visualisierung: [geom()]{.seeblau}. Weitere (optionale) Schichten fügen dann optische Effekte hinzu, bestimmen Annotation, etc.
+
+Hier funktioniert die Kuchen Metapher ganz gut.
+
+## 
+
+``` seeblau
+ggplot(data, aes(x,y)) + geom_?()
+```
+
+![](images/cake%20metaphor.png){fig-align="left"}
+
+## Was für Visualisierungen gibt es?
+
+\
+Es gibt verschiedenste geoms:
+
+::: incremental
+-   [geom_bar]{.seeblau}
+-   geom_histogram
+-   geom_point
+-   geom_jitter
+-   geom_boxplot
+-   ...
+:::
+
+## Balkendiagramm - die basics
+
+\
+
+```{r}
+#| output-location: column-fragment
+#| fig-height: 5
+#| fig-width: 4
+#| code-line-numbers: "1|2|3"
+
+lingland %>% 
+  ggplot(aes(x=Forschungsfokus))+
+  geom_bar()
+```
+
+## Balkendiagramm - mit ein bisschen schön
+
+\
+
+```{r}
+#| output-location: column-fragment
+#| fig-height: 5
+#| fig-width: 4
+#| code-line-numbers: "1,2|3,4"
+
+lingland %>% 
+  ggplot(aes(x=Forschungsfokus))+
+  geom_bar(fill="forestgreen", 
+           color="black")
+
+```
+
+## Balkendiagramm - mit ein bisschen schön
+
+\
+
+```{r}
+#| output-location: column-fragment
+#| fig-height: 5
+#| fig-width: 4
+#| code-line-numbers: "1,2,3,4|5,6,7,8,9"
+
+lingland %>% 
+  ggplot(aes(x=Forschungsfokus))+
+  geom_bar(fill="forestgreen", 
+           color="black") +
+  labs(title= "Unser erstes Balkendiagramm",
+       subtitle= "Schaut her!",
+       x= "Forschungsfokus",
+       y="",
+       caption="Daten aus dem Seminar 2023")
+
+```
+
+## Balkendiagramm - mit ein bisschen schön
+
+\
+
+```{r}
+#| output-location: column-fragment
+#| fig-height: 5
+#| fig-width: 4
+#| code-line-numbers: "1,2,3,4,5,6,7,8,9|10"
+
+lingland %>% 
+  ggplot(aes(x=Forschungsfokus))+
+  geom_bar(fill="forestgreen", 
+           color="black") +
+  labs(title= "Unser erstes Balkendiagramm",
+       subtitle= "Schaut her!",
+       x= "Forschungsfokus",
+       y="",
+       caption="Daten aus dem Seminar 2023") +
+  theme_bw()
+
+```
+
+## 
