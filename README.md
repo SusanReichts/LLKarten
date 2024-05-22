@@ -27,11 +27,7 @@ tidyverse, sf, ggmap, osmdata, (plotly)
 
 Datensatz ist in den Projektordner geladen, alternativ direkt über github zu laden
 
-lingland <- read_csv("lingland.csv") 
-
-oder:
-
-lingland <- read.csv("https://raw.githubusercontent.com/SusanReichts/LLKarten/main/lingland.csv?token=GHSAT0AAAAAACG52U6XUR3USZPTHX6GK6FAZHO7UIQ")
+EINSATZ
 
 ## Datensatz Linguistic Landscapes
 
